@@ -6,7 +6,7 @@
 
 - link:
     ~/.tmux.conf: tmux.conf
-    ~/.tmux.conf.loca: tmux.conf.local
+    ~/.tmux.conf.local: tmux.conf.local
     ~/.vimrc: vimrc
     ~/.vim/.ycm_extra_conf.py: ycm_extra_conf.py
     ~/.inputrc: inputrc
