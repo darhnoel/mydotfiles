@@ -424,3 +424,4 @@ set autoread " automatically re-read files if unmodified inside vim
 set confirm
 set relativenumber
 set number
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'

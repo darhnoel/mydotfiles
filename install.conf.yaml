@@ -12,8 +12,6 @@
     ~/.inputrc: inputrc
 
 - create:
-    - ~/downloads
-    - ~/.vim/undo-history
 
 - shell:
     - [git submodule update --init --recursive, Installing submodule]
