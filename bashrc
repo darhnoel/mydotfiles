@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 
 # If not running interactively, don't do anything
 case $- in
@@ -7,23 +6,17 @@ case $- in
 esac
 
 # Path to the bash it configuration
-export BASH_IT="/home/linak/.bash_it"
+export BASH_IT="/home/$USER/.bash_it"
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
 # location /.bash_it/themes/
-# export BASH_IT_THEME='bobby'
+# the default theme is bobby
 export BASH_IT_THEME='zork'
-export THEME_SHOW_CLOCK='true'
-export THEME_SHOW_CLOCK_CHAR='false'
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
 # export BASH_IT_REMOTE='bash-it'
-
-# (Advanced): Change this to the name of the main development branch if
-# you renamed it or if it was changed for some reason
-# export BASH_IT_DEVELOPMENT_BRANCH='master'
 
 # Your place for hosting Git repos. I use this for private repos.
 export GIT_HOSTING='git@git.domain.com'
@@ -54,13 +47,6 @@ export SCM_CHECK=true
 # Will otherwise fall back on $USER.
 #export SHORT_USER=${USER:0:8}
 
-# If your theme use command duration, uncomment this to
-# enable display of last command duration.
-#export BASH_IT_COMMAND_DURATION=true
-# You can choose the minimum time in seconds before
-# command duration is displayed.
-#export COMMAND_DURATION_MIN_SECONDS=1
-
 # Set Xterm/screen/Tmux title with shortened command and directory.
 # Uncomment this to set.
 #export SHORT_TERM_LINE=true
@@ -78,7 +64,3 @@ export SCM_CHECK=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
-# my configuration
-if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
-fi
