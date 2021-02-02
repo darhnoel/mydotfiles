@@ -63,4 +63,6 @@ export SCM_CHECK=true
 # export BASH_IT_RELOAD_LEGACY=1
 
 # Load Bash It
+source "$BASH_IT"/completion/available/tmux.completion.bash
+source "$BASH_IT/plugins/available/tmux.plugin.bash"
 source "$BASH_IT"/bash_it.sh

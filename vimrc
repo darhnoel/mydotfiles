@@ -76,57 +76,6 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
-"Always show current position
-set ruler
-
-" Height of the command bar
-set cmdheight=1
-
-" A buffer becomes hidden when it is abandoned
-set hid
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-" Ignore case when searching
-set ignorecase
-
-" When searching try to be smart about cases 
-set smartcase
-
-" Highlight search results
-set hlsearch
-
-" Makes search act like search in modern browsers
-set incsearch 
-
-" Don't redraw while executing macros (good performance config)
-set lazyredraw 
-
-" For regular expressions turn magic on
-set magic
-
-" Show matching brackets when text indicator is over them
-set showmatch 
-" How many tenths of a second to blink when matching brackets
-set mat=2
-
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-" Properly disable sound on errors on MacVim
-if has("gui_macvim")
-    autocmd GUIEnter * set vb t_vb=
-endif
-
-
-" Add a bit extra margin to the left
-set foldcolumn=1
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -170,7 +119,6 @@ set ffs=unix,dos,mac
 set nobackup
 set nowb
 set noswapfile
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -384,25 +332,19 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIMPLUG
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Specify a directory for plugins
 " " - For Neovim: stdpath('data') . '/plugged'
 " " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-" On-demand loading
+Plug 'junegunn/vim-easy-align' " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'https://github.com/junegunn/vim-github-dashboard.git' " Any valid git URL is allowed
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " Multiple Plug commands can be written in a single line using | separators
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Using a non-default branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-" Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf'
 Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
@@ -416,18 +358,49 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
-
 " Initialize plugin system
 call plug#end()
 
-set autoread " automatically re-read files if unmodified inside vim
-set confirm
-set relativenumber
-set number
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => MYCONFIG PREFERENCES
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ruler "Always show current position
+set cmdheight=1 " Height of the command bar
+set hid " A buffer becomes hidden when it is abandoned
+set backspace=eol,start,indent " Configure backspace so it acts as it should act
+set whichwrap+=<,>,h,l
+set ignorecase " Ignore case when searching
+set smartcase " When searching try to be smart about cases 
+set hlsearch " Highlight search results
+set incsearch " Makes search act like search in modern browsers
+set lazyredraw " Don't redraw while executing macros (good performance config)
+set magic " For regular expressions turn magic on
+set showmatch " Show matching brackets when text indicator is over them
+set mat=2 " How many tenths of a second to blink when matching brackets
+set tm=500
 
 " Lets remove the fucking beep sound
 set noerrorbells visualbell t_vb=
 if has('autocmd')
     autocmd GUIEnter * set visualbell t_vb=
 endif
+
+" Properly disable sound on errors on MacVim
+if has("gui_macvim")
+    autocmd GUIEnter * set vb t_vb=
+endif
+
+set foldcolumn=1 " Add a bit extra margin to the left
+set autoread " automatically re-read files if unmodified inside vim
+set confirm  " confirmation [Y/n] before closing vim
+set relativenumber " easy to jump to the desired line
+set number  " set line number
+set cursorline " Highlight the line currently under cursor
+set formatoptions-=cro
+colorscheme monokai-phoenix " beautiful them
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YOUCOMPLETEME
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" link to the youcompleteme config file
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
