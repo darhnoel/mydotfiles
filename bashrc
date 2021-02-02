@@ -65,4 +65,9 @@ export SCM_CHECK=true
 # Load Bash It
 # source "$BASH_IT"/completion/available/tmux.completion.bash
 # source "$BASH_IT/plugins/available/tmux.plugin.bash"
+export EDITOR=vim
+export VISUAL=vim
 source "$BASH_IT"/bash_it.sh
+if [ -f ~/.bash_profile ];then
+    . ~/.bash_profile
+fi

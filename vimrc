@@ -358,6 +358,7 @@ Plug 'valloric/youcompleteme', {'commit':'d98f896'}
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'haya14busa/incsearch.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'udalov/kotlin-vim'
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
 
