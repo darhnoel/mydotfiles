@@ -341,6 +341,7 @@ endfunction
 " " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+Plug 'vim-syntastic/syntastic'
 Plug 'junegunn/vim-easy-align' " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'https://github.com/junegunn/vim-github-dashboard.git' " Any valid git URL is allowed
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " Multiple Plug commands can be written in a single line using | separators
@@ -403,4 +404,5 @@ colorscheme molokai " beautiful theme
 " => YOUCOMPLETEME
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " link to the youcompleteme config file
+let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
