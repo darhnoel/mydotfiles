@@ -339,6 +339,8 @@ endfunction
 " Specify a directory for plugins
 " " - For Neovim: stdpath('data') . '/plugged'
 " " - Avoid using standard Vim directory names like 'plugin'
+" Initialize plugin system
+"##############################################################
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-syntastic/syntastic'
@@ -356,11 +358,11 @@ Plug 'valloric/youcompleteme', {'commit':'d98f896'}
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'haya14busa/incsearch.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
-
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
-" Initialize plugin system
+
 call plug#end()
+"##############################################################
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MYCONFIG PREFERENCES
@@ -398,7 +400,6 @@ set relativenumber " easy to jump to the desired line
 set number  " set line number
 set cursorline " Highlight the line currently under cursor
 set formatoptions-=cro
-colorscheme molokai " beautiful theme
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YOUCOMPLETEME
@@ -406,3 +407,15 @@ colorscheme molokai " beautiful theme
 " link to the youcompleteme config file
 let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => SET ENVRIONMENT COLORSCHEME
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme molokai " as default
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => MAPPING FOR NERDTREE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>nf :NERDTreeFocus<CR>
+nmap <leader>n :NERDTree<CR>
+nmap <leader>nt :NERDTreeToggle<CR>
