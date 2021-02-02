@@ -397,7 +397,7 @@ set relativenumber " easy to jump to the desired line
 set number  " set line number
 set cursorline " Highlight the line currently under cursor
 set formatoptions-=cro
-colorscheme monokai-phoenix " beautiful them
+set colorscheme molokai " beautiful theme
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YOUCOMPLETEME
