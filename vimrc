@@ -420,3 +420,8 @@ colorscheme molokai " as default
 nmap <leader>nf :NERDTreeFocus<CR>
 nmap <leader>n :NERDTree<CR>
 nmap <leader>nt :NERDTreeToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => :nohlsearch SHORTHAND
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>nh :nohl<CR>

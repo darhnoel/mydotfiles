@@ -16,5 +16,8 @@ $endif
 # for tab-complte color
 set colored-stats on
 
+# enable case-insensitive
+set completion-ignore-case on
+
 # remove the fucking beep
 set bell-style none
