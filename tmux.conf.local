@@ -51,7 +51,7 @@ tmux_conf_theme_window_bg='default'
 # highlight focused pane (tmux >= 2.1), possible values are:
 #   - true
 #   - false (default)
-tmux_conf_theme_highlight_focused_pane=true
+tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
 tmux_conf_theme_focused_pane_fg='default'
@@ -249,9 +249,9 @@ tmux_conf_battery_vbar_palette='gradient'
 #tmux_conf_battery_vbar_palette='#d70000,#ff5f00,#5fff00'  # red, orange, green
 
 # symbols used to indicate whether battery is charging or discharging
-tmux_conf_battery_status_charging='↑'       # U+2191
+# tmux_conf_battery_status_charging='↑'       # U+2191
 tmux_conf_battery_status_discharging='↓'    # U+2193
-#tmux_conf_battery_status_charging='⚡ '    # U+26A1
+tmux_conf_battery_status_charging='⚡ '    # U+26A1
 #tmux_conf_battery_status_charging='🔌 '    # U+1F50C
 #tmux_conf_battery_status_discharging='🔋 ' # U+1F50B
 

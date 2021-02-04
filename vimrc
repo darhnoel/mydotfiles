@@ -354,11 +354,16 @@ Plug 'yggdroot/indentline'
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'valloric/youcompleteme', {'commit':'d98f896'}
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'haya14busa/incsearch.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'udalov/kotlin-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'whatyouhide/vim-tmux-syntax'
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
 
@@ -408,11 +413,20 @@ set formatoptions-=cro
 " link to the youcompleteme config file
 let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+set completeopt-=preview " show no preview on top
+set completeopt+=popup
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM-AIRLINE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline_theme='molokai'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => SET ENVRIONMENT COLORSCHEME
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syn on
 colorscheme molokai " as default
+set termguicolors " this works like charm, color in tmux fixed! 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MAPPING FOR NERDTREE

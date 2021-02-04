@@ -65,9 +65,19 @@ export SCM_CHECK=true
 # Load Bash It
 # source "$BASH_IT"/completion/available/tmux.completion.bash
 # source "$BASH_IT/plugins/available/tmux.plugin.bash"
+
 export EDITOR=vim
 export VISUAL=vim
+
 source "$BASH_IT"/bash_it.sh
 if [ -f ~/.bash_profile ];then
     . ~/.bash_profile
+fi
+
+if [ -f ~/.bash_alias ];then
+    . ~/.bash_alias
+fi
+
+if [ -f ~/.caffe_config ];then
+    . ~/.caffe_config
 fi

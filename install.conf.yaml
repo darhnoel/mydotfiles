@@ -12,6 +12,7 @@
     ~/.inputrc: inputrc
     ~/.bashrc: bashrc
     ~/.bash_alias: bash_alias
+    ~/.caffe_config: caffe_config
 
 # - create:
 
