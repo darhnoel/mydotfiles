@@ -88,12 +88,6 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    " colorscheme desert
-    " colorscheme pablo
-    colorscheme valloric
-catch
-endtry
 
 set background=dark
 
@@ -405,6 +399,8 @@ set confirm  " confirmation [Y/n] before closing vim
 set relativenumber " easy to jump to the desired line
 set number  " set line number
 set cursorline " Highlight the line currently under cursor
+
+hi  CursorLine cterm=NONE
 set formatoptions-=cro
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -424,7 +420,15 @@ let g:airline_theme='molokai'
 " => SET ENVRIONMENT COLORSCHEME
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syn on
-colorscheme molokai " as default
+try
+    " colorscheme desert
+    " colorscheme pablo
+    " colorscheme valloric
+    " colorscheme molokai " as default
+    colorscheme gruvbox " as default
+catch
+endtry
+
 set termguicolors " this works like charm, color in tmux fixed! 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -432,9 +436,27 @@ set termguicolors " this works like charm, color in tmux fixed!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>nf :NERDTreeFocus<CR>
 nmap <leader>n :NERDTree<CR>
-nmap <leader>nt :NERDTreeToggle<CR>
+nmap <leader>, :NERDTreeToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => MAPPING FOR FZF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mapping selecting mappiopgs
+nmap <leader><tab> <plug>(fzf.maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf.maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzfcomplete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => :nohlsearch SHORTHAND
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>nh :nohl<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => :nohlsearch SHORTHAND
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>sop :source %<cr>

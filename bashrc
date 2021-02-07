@@ -69,6 +69,8 @@ export SCM_CHECK=true
 export EDITOR=vim
 export VISUAL=vim
 
+export TERM="xterm-256color" # to fix color tmux-vim
+
 source "$BASH_IT"/bash_it.sh
 
 if [ -f ~/.bash_alias ];then

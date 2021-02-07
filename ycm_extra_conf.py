@@ -32,6 +32,7 @@ CPP_BASE_FLAGS = [
         '-I/usr/lib/',
         '-I/usr/include/',
         '-I/usr/local/include/opencv4'
+        '-I/usr/local/include/opencv4/opencv2'
         ]
 
 C_SOURCE_EXTENSIONS = [
@@ -203,5 +204,5 @@ def Settings(filename, **kwargs):
             final_flags = final_flags + include_flags
     return {
             'flags': final_flags,
-            'do_cache': True
+            'do_cache': True,
             }
