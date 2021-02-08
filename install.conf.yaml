@@ -5,8 +5,8 @@
 - clean: ['~']
 
 - link:
-    ~/.tmux.conf: tmux.conf
-    ~/.tmux.conf.local: tmux.conf.local
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.tmux.conf.local: tmux/tmux.conf.local
     ~/.vimrc: vimrc
     ~/.vim/.ycm_extra_conf.py: ycm_extra_conf.py
     ~/.inputrc: inputrc
