@@ -7,8 +7,8 @@
 - link:
     ~/.tmux.conf: tmux/tmux.conf
     ~/.tmux.conf.local: tmux/tmux.conf.local
-    ~/.vimrc: vimrc
-    ~/.vim/.ycm_extra_conf.py: ycm_extra_conf.py
+    ~/.vimrc: vim/vimrc
+    ~/.vim/.ycm_extra_conf.py: vim/ycm_extra_conf.py
     ~/.inputrc: inputrc
     ~/.bashrc: bashrc
     ~/.bash_aliases: bash_aliases

@@ -1,5 +1,7 @@
 ##########################################################
-#               Unlock bitlocker hard drive              #
+# CREATED:  2021-02-09                                   #
+# AUTHOR:   Suineg-Darhnoel                              #
+# PROGRAM:  Unlock bitlocker hard drive                  #
 ##########################################################
 
 BLK_DIR="/media/bitlocker"
