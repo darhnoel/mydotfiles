@@ -12,9 +12,13 @@
     ~/.inputrc: inputrc
     ~/.bashrc: bashrc
     ~/.bash_aliases: bash_aliases
-    ~/.caffe_config: caffe_config
+    ~/.bash_funcs/:
+        glob: true
+        path: bashf/*
+        relink: true
 
-# - create:
+- create:
+    - ~/.bash_funcs
 
 - shell:
     - [git submodule update --init --recursive, Installing submodule]
