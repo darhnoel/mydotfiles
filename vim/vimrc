@@ -367,6 +367,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MYCONFIG PREFERENCES
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set mouse=a
 set ruler "Always show current position
 set cmdheight=1 " Height of the command bar
 set hid " A buffer becomes hidden when it is abandoned
