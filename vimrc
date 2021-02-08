@@ -436,7 +436,7 @@ set termguicolors " this works like charm, color in tmux fixed!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>nf :NERDTreeFocus<CR>
 nmap <leader>n :NERDTree<CR>
-nmap <leader>, :NERDTreeToggle<CR>
+nmap <leader>nt :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MAPPING FOR FZF
