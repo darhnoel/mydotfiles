@@ -74,6 +74,7 @@ source "$BASH_IT"/bash_it.sh
 
 if [[ -d ~/.bash_funcs ]];then
     . ~/.bash_funcs/bashf_bitlocker_tools.sh
+    . ~/.bash_funcs/bashf_tmux_tools.sh
 fi
 
 if [ -f ~/.bash_alias ];then
