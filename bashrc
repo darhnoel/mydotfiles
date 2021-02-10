@@ -75,6 +75,7 @@ source "$BASH_IT"/bash_it.sh
 if [[ -d ~/.bash_funcs ]];then
     . ~/.bash_funcs/bashf_bitlocker_tools.sh
     . ~/.bash_funcs/bashf_tmux_tools.sh
+    . ~/.bash_funcs/bashf_cuda_conf.sh
 fi
 
 if [ -f ~/.bash_alias ];then
@@ -84,3 +85,6 @@ fi
 if [ -f ~/.caffe_config ];then
     . ~/.caffe_config
 fi
+
+# for vim to work on lab's pc
+alias python="/usr/bin/python3.6"
