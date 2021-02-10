@@ -2,9 +2,8 @@
 # CHECK IF THE SYSTEM HAS GPU
 
 VGA_MSG=$(lspci -vnnn | perl -lne 'print if /^\d+\:.+(\[\S+\:\S+\])/' | grep VGA)
-echo "$VGA_MSG"
-if [[ $VGA_MSG != "" ]]
-then
+
+if [[ $VGA_MSG != "" ]]; then
     VISUAL_ROOT="/usr/lib"
     REAL_ROOT="/opt/cuda/9.0/lib64"
 
