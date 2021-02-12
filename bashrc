@@ -76,15 +76,6 @@ if [[ -d ~/.bash_funcs ]];then
     . ~/.bash_funcs/bashf_bitlocker_tools.sh
     . ~/.bash_funcs/bashf_tmux_tools.sh
     . ~/.bash_funcs/bashf_cuda_conf.sh
+    . ~/.bash_funcs/bashf_caffe_conf.sh
+    . ~/.bash_funcs/bash_aliases
 fi
-
-if [ -f ~/.bash_alias ];then
-    . ~/.bash_alias
-fi
-
-if [ -f ~/.caffe_config ];then
-    . ~/.caffe_config
-fi
-
-# for vim to work on lab's pc
-alias python="/usr/bin/python3.6"
