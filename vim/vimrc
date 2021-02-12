@@ -349,6 +349,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
 Plug 'valloric/youcompleteme', {'commit':'d98f896'}
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'haya14busa/incsearch.vim'
@@ -356,7 +357,6 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'udalov/kotlin-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 Plug 'whatyouhide/vim-tmux-syntax'
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
@@ -413,6 +413,13 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 set completeopt-=preview " show no preview on top
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ULTISNIPS TRIGGER
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsExpandTrigger="<S-tab>"
+let g:UltiSnipsListSnippets="<S-f>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM-AIRLINE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_theme='molokai'
@@ -425,8 +432,8 @@ try
     " colorscheme desert
     " colorscheme pablo
     " colorscheme valloric
-    " colorscheme molokai " as default
-    colorscheme gruvbox " as default
+    colorscheme molokai " as default
+    " colorscheme gruvbox " as default
 catch
 endtry
 
@@ -455,9 +462,11 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => :nohlsearch SHORTHAND
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>nh :nohl<CR>
+nnoremap <esc> :nohl<return><esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => :nohlsearch SHORTHAND
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>sop :source %<cr>
+
+
