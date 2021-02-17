@@ -416,7 +416,7 @@ set completeopt-=preview " show no preview on top
 " => ULTISNIPS TRIGGER
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsExpandTrigger="<S-tab>"
-let g:UltiSnipsListSnippets="<S-f>"
+let g:UltiSnipsListSnippets="<C-S-f>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -462,11 +462,10 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => :nohlsearch SHORTHAND
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <esc> :nohl<return><esc>
+" nnoremap <esc> :nohl<return><esc>
+" has trouble with startup as REPLACE MODE
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => :nohlsearch SHORTHAND
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>sop :source %<cr>
-
-

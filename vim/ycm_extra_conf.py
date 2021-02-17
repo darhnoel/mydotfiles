@@ -31,7 +31,7 @@ CPP_BASE_FLAGS = [
         '-xc++',
         '-I/usr/lib/',
         '-I/usr/include/',
-        '-I/usr/local/include/opencv4'
+        '-I/usr/local/include/opencv4',
         '-I/usr/local/include/opencv4/opencv2'
         ]
 
