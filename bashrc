@@ -79,3 +79,7 @@ if [[ -d ~/.bash_funcs ]];then
     . ~/.bash_funcs/bashf_caffe_conf.sh
     . ~/.bash_funcs/bash_aliases
 fi
+
+export CPLUS_INCLUDE_PATH=~/workdir/caffe/include/caffe:$CPLUS_INCLUDE_PATH
+export PYTHONPATH=~/.local/lib/python3.6/site-packages:$PYTHONPATH
+export PATH=~/workdir/caffe/include/caffe:$PATH
