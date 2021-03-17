@@ -9,12 +9,11 @@
 EASYT_NAME=""
 EASYT_DEFAULT=1
 EASYT_CMDS=(
-    easy_tm_cmdlist
-    easy_tm_new_session
-    easy_tm_gridh
-    easy_tm_gridv
-    easy_tm_pythonh
-    easy_tm_pythonv
+    eztm_cmdlist
+    eztm_new_session
+    eztm_gridh
+    eztm_gridv
+    eztm_pythonh
 )
 
 alias tmuxls="tmux ls"
