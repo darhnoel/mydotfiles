@@ -32,7 +32,8 @@ CPP_BASE_FLAGS = [
         '-I/usr/lib/',
         '-I/usr/include/',
         '-I/usr/local/include/opencv4',
-        '-I/usr/local/include/opencv4/opencv2'
+        '-I/usr/local/include/opencv4/opencv2',
+        '-I/opt/pylon/include',
         ]
 
 C_SOURCE_EXTENSIONS = [
