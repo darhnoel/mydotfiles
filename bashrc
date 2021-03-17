@@ -84,3 +84,5 @@ fi
 if [ -f ~/.caffe_config ];then
     . ~/.caffe_config
 fi
+
+export PYLON_ROOT=/opt/pylon

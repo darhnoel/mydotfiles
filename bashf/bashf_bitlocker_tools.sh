@@ -79,16 +79,16 @@ select_drive(){
     use_bitlocker_drive $DRIVE_LABEL
 }
 
-easy_unlock_bitlocker(){
+ez_unlock_bitlocker(){
     echo "--------------EASY UNLOCK -------------"
     unlock_usbdrive
     detected_drives_details
     select_drive
 }
 
-easy_unmount_bitlocker(){
-    sudo umount $MNT_DIR
-    sudo umount $BLK_DIR
+ez_umount_bitlocker(){
+    sudo umount -l $MNT_DIR
+    sudo umount -l $BLK_DIR
 }
 
 ##########################################################

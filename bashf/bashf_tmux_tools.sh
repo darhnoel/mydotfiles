@@ -19,18 +19,18 @@ EASYT_CMDS=(
 
 alias tmuxls="tmux ls"
 
-easy_tm_cmdlist(){
+eztm_cmdlist(){
     echo "<< EASY TMUX LIST >>"
     for cmd in ${EASYT_CMDS[@]};do
         echo "[ $cmd  ]"
     done
 }
 
-easy_tm_attach(){
+eztm_attach(){
     tmux -a t $1
 }
 
-easy_tm_new_session(){
+eztm_new_session(){
     if [[ -z $1 ]];then
         tmux
     else
@@ -38,7 +38,7 @@ easy_tm_new_session(){
     fi
 }
 
-easy_tm_gridh(){
+eztm_gridh(){
     #    IMAGE
     # ------------
     # |          | 70%
@@ -52,7 +52,7 @@ easy_tm_gridh(){
     select-pane -t 1\;
 }
 
-easy_tm_gridv(){
+eztm_gridv(){
     #    IMAGE
     # ------------
     # |   |      |
@@ -64,7 +64,7 @@ easy_tm_gridv(){
     split-window -h -p 80\;
 }
 
-easy_tm_pythonh(){
+eztm_pythonh(){
     tmux new-session \;\
     split-window -v -p 30\;\
     send-keys 'python3' C-m\;
