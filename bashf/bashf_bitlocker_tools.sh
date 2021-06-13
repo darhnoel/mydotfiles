@@ -9,6 +9,8 @@ MNT_DIR="/media/mount"
 DRIVE_PATTERN="^(/dev/\w+[0-9])"
 FOUND_DRIVES=""
 
+export DISLOCKER_CHECKED=false
+
 install_dislocker(){
     sudo apt install dislocker
 }
@@ -27,7 +29,8 @@ check_dislocker(){
             return 0
         fi
     else
-        echo "dislocker [exists]"
+        (($DISLOCKER_CHECKED)) && echo "dislocker [exists]"
+        DISLOCKER_CHECKED=true
     fi
 }
 
@@ -48,28 +51,28 @@ find_usbdrive(){
 }
 
 unlock_usbdrive(){
-    echo "--------------UNLOCK USB DRIVE -------------"
+    echo "[--------------UNLOCK USB DRIVE -------------]"
     check_dislocker      # check if dislocker exists
     create_mount_dir     # create mount directory
     find_usbdrive        # confirm the location of the bitlocker drive
 }
 
 detected_drives_details(){
-    echo "--------------DETECT USB DRIVE -------------"
+    echo "[--------------DETECT USB DRIVE -------------]"
     unlock_usbdrive | grep -E $DRIVE_PATTERN
 }
 
 use_bitlocker_drive(){
-    echo "--------------USE BITLOCKER DRIVE-------------"
+    echo "[--------------USE BITLOCKER DRIVE-------------]"
     sudo dislocker -V "$1" -u -- $BLK_DIR
     sudo mount -o loop,rw,umask=0 "$BLK_DIR/dislocker-file" $MNT_DIR
 }
 
 select_drive(){
-    echo "--------------SELECT BITLOCKER DRIVE-------------"
+    echo "[--------------SELECT BITLOCKER DRIVE-------------]"
     FOUND_DRIVES=$(unlock_usbdrive | grep -Eo $DRIVE_PATTERN 2>&1)
 
-    echo "There are(is) ${#FOUND_DRIVES[@]} usb drive found"
+    echo "${#FOUND_DRIVES[@]} found"
     for fd in ${FOUND_DRIVES[@]};do
         echo "[ $fd ]"
     done
@@ -79,14 +82,14 @@ select_drive(){
     use_bitlocker_drive $DRIVE_LABEL
 }
 
-ez_unlock_bitlocker(){
-    echo "--------------EASY UNLOCK -------------"
+ezunlock_bitlocker(){
+    echo "[--------------EASY UNLOCK -------------]"
     unlock_usbdrive
-    detected_drives_details
+    # detected_drives_details
     select_drive
 }
 
-ez_umount_bitlocker(){
+ezumount_bitlocker(){
     sudo umount -l $MNT_DIR
     sudo umount -l $BLK_DIR
 }
