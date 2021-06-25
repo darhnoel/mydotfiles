@@ -433,7 +433,8 @@ try
     " colorscheme desert
     " colorscheme pablo
     " colorscheme valloric
-    colorscheme molokai " as default
+    colorscheme solarized8_dark_high
+    " colorscheme molokai " as default
     " colorscheme gruvbox " as default
 catch
 endtry

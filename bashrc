@@ -70,6 +70,11 @@ export EDITOR=vim
 export VISUAL=vim
 export TERM="xterm-256color" # to fix color tmux-vim
 
+# For Gurobi
+export GUROBI_HOME="/opt/gurobi912/linux64"
+export PATH="${PATH}:${GUROBI_HOME}/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+
 source "$BASH_IT"/bash_it.sh
 
 if [[ -d ~/.bash_funcs ]];then
@@ -84,5 +89,3 @@ fi
 if [ -f ~/.caffe_config ];then
     . ~/.caffe_config
 fi
-
-export PYLON_ROOT=/opt/pylon
