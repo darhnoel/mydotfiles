@@ -6,8 +6,9 @@
 
 BLK_DIR="/media/bitlocker"
 MNT_DIR="/media/mount"
-DRIVE_PATTERN="^(/dev/\w+[0-9])"
+DRIVE_PATTERN="^(/dev/sd\w+[0-9])"
 FOUND_DRIVES=""
+DRIVE_INFO=""
 
 export DISLOCKER_CHECKED=false
 
@@ -35,42 +36,36 @@ check_dislocker(){
 }
 
 create_mount_dir(){
-    if [ ! -d $BLK_DIR ];then
-        echo "sudo mkdir $BLK_DIR"
-        sudo mkdir $BLK_DIR
+    if [ ! -d $1 ];then
+        echo "sudo mkdir $1"
+        sudo mkdir "$1"
     fi
 
-    if [ ! -d $MNT_DIR ];then
-        echo "sudo mkdir $MNT_DIR"
-        sudo mkdir $MNT_DIR
+    if [ ! -d $2 ];then
+        echo "sudo mkdir $2"
+        sudo mkdir "$2"
     fi
 }
 
-find_usbdrive(){
-    sudo fdisk -l | tail
-}
-
-unlock_usbdrive(){
+init_usbdrive(){
     echo "[--------------UNLOCK USB DRIVE -------------]"
     check_dislocker      # check if dislocker exists
-    create_mount_dir     # create mount directory
-    find_usbdrive        # confirm the location of the bitlocker drive
 }
 
 detected_drives_details(){
     echo "[--------------DETECT USB DRIVE -------------]"
-    unlock_usbdrive | grep -E $DRIVE_PATTERN
+    sudo fdisk -l | grep -E $DRIVE_PATTERN
 }
 
 use_bitlocker_drive(){
     echo "[--------------USE BITLOCKER DRIVE-------------]"
-    sudo dislocker -V "$1" -u -- $BLK_DIR
-    sudo mount -o loop,rw,umask=0 "$BLK_DIR/dislocker-file" $MNT_DIR
+    sudo dislocker -V "$1" -u -- "$2"
+    sudo mount -o loop,rw,umask=0 "$2/dislocker-file" "$3"
 }
 
 select_drive(){
     echo "[--------------SELECT BITLOCKER DRIVE-------------]"
-    FOUND_DRIVES=$(unlock_usbdrive | grep -Eo $DRIVE_PATTERN 2>&1)
+    FOUND_DRIVES=$(sudo fdisk -l | grep -oE $DRIVE_PATTERN 2>&1)
 
     echo "${#FOUND_DRIVES[@]} found"
     for fd in ${FOUND_DRIVES[@]};do
@@ -79,19 +74,22 @@ select_drive(){
 
     printf "Insert the label: "
     read DRIVE_LABEL
-    use_bitlocker_drive $DRIVE_LABEL
+    use_bitlocker_drive $DRIVE_LABEL $1 $2
 }
 
 ezunlock_bitlocker(){
     echo "[--------------EASY UNLOCK -------------]"
-    unlock_usbdrive
-    # detected_drives_details
-    select_drive
+    local ID=$1
+    args="${BLK_DIR}_${ID} ${MNT_DIR}_${ID}"
+    init_usbdrive
+    create_mount_dir $args   # create mount directory
+    select_drive $args
 }
 
 ezumount_bitlocker(){
-    sudo umount -l $MNT_DIR
-    sudo umount -l $BLK_DIR
+    local ID=$1
+    sudo umount -l "${MNT_DIR}_${ID}"
+    sudo umount -l "${BLK_DIR}_${ID}"
 }
 
 ##########################################################
