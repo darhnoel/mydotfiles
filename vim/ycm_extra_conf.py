@@ -16,7 +16,7 @@ C_BASE_FLAGS = [
         '-I/usr/lib',
         '-I/usr/include',
         '-I/usr/include/opencv4/',
-        '-I/usr/lib/llvm-10/include/openmp/omp.h',
+        '-I/usr/lib/llvm-10/include/openmp/',
         ]
 
 CPP_BASE_FLAGS = [
@@ -33,7 +33,7 @@ CPP_BASE_FLAGS = [
         '-I/usr/include/',
         '-I/usr/include/opencv4/',
         '-I/opt/pylon/include',
-        '-I/usr/lib/llvm-10/include/openmp/omp.h',
+        '-I/usr/lib/llvm-10/include/openmp/',
         ]
 
 C_SOURCE_EXTENSIONS = [
