@@ -8,7 +8,6 @@ BLK_DIR="/media/bitlocker"
 MNT_DIR="/media/mount"
 DRIVE_PATTERN="^(/dev/sd\w+[0-9])"
 FOUND_DRIVES=""
-DRIVE_INFO=""
 
 export DISLOCKER_CHECKED=false
 
@@ -47,29 +46,34 @@ create_mount_dir(){
     fi
 }
 
-init_usbdrive(){
-    echo "[--------------UNLOCK USB DRIVE -------------]"
-    check_dislocker      # check if dislocker exists
-}
-
 detected_drives_details(){
-    echo "[--------------DETECT USB DRIVE -------------]"
+    echo "[------------------------ DETECT USB DRIVES -------------------------]"
     sudo fdisk -l | grep -E $DRIVE_PATTERN
 }
 
 use_bitlocker_drive(){
-    echo "[--------------USE BITLOCKER DRIVE-------------]"
+    echo "[------------------------ USE BITLOCKER DRIVE -------------------------]"
     sudo dislocker -V "$1" -u -- "$2"
     sudo mount -o loop,rw,umask=0 "$2/dislocker-file" "$3"
 }
 
 select_drive(){
-    echo "[--------------SELECT BITLOCKER DRIVE-------------]"
-    FOUND_DRIVES=$(sudo fdisk -l | grep -oE $DRIVE_PATTERN 2>&1)
+    # color
+    local GREEN='\033[1;32m'
+    local RED='\033[1;31m'
+    local OFF='\033[m'
 
-    echo "${#FOUND_DRIVES[@]} found"
+    # show available drives
+    detected_drives_details
+
+    # show drives' names
+    FOUND_DRIVES=($(sudo fdisk -l | grep -oE $DRIVE_PATTERN 2>&1))
+
+    # show number of drives found
+    echo -e "${#FOUND_DRIVES[@]} [ ${GREEN}found${OFF} ]"
+
     for fd in ${FOUND_DRIVES[@]};do
-        echo "[ $fd ]"
+        echo -e "[ ${GREEN}${fd}${OFF} ]"
     done
 
     printf "Insert the label: "
@@ -77,17 +81,27 @@ select_drive(){
     use_bitlocker_drive $DRIVE_LABEL $1 $2
 }
 
-ezunlock_bitlocker(){
-    echo "[--------------EASY UNLOCK -------------]"
+bitlocker_unlock(){
     local ID=$1
+    if [ -z "$ID" ];then
+        echo "Usage: bitlocker_unlock <ID>"
+        return
+    fi
+
     args="${BLK_DIR}_${ID} ${MNT_DIR}_${ID}"
-    init_usbdrive
+    check_dislocker
     create_mount_dir $args   # create mount directory
     select_drive $args
 }
 
-ezumount_bitlocker(){
+bitlocker_umount(){
     local ID=$1
+
+    if [ -z "$ID" ];then
+        echo "Usage: bitlocker_umount <ID>"
+        return
+    fi
+
     sudo umount -l "${MNT_DIR}_${ID}"
     sudo umount -l "${BLK_DIR}_${ID}"
 }
