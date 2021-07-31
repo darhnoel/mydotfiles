@@ -15,7 +15,6 @@ C_BASE_FLAGS = [
         '-std=c11',
         '-I/usr/lib',
         '-I/usr/include',
-        '-I/usr/include/opencv4/',
         '-I/usr/lib/llvm-10/include/openmp/',
         ]
 
@@ -31,9 +30,16 @@ CPP_BASE_FLAGS = [
         '-xc++',
         '-I/usr/lib/',
         '-I/usr/include/',
-        '-I/usr/include/opencv4/',
         '-I/opt/pylon/include',
-        '-I/usr/lib/llvm-10/include/openmp/',
+        # opencv
+        '-I/usr/local/opencv4.5/include/opencv4',
+        '-I/usr/local/opencv4.5/include/opencv4/opencv2',
+        # openmp
+        '-I/usr/lib/llvm-10/include/openmp',
+        # my project
+        '-I/home/linak/WorkDir/clbp_tracker/include',
+        # caffe include files
+        '-I/home/linak/caffe/include',
         ]
 
 C_SOURCE_EXTENSIONS = [
