@@ -104,6 +104,16 @@ bitlocker_umount(){
 
     sudo umount -l "${MNT_DIR}_${ID}"
     sudo umount -l "${BLK_DIR}_${ID}"
+
+    if [ -d "${MNT_DIR}_${ID}" ];then
+        echo "Removing ${MNT_DIR}_${ID}"
+        sudo rmdir "${MNT_DIR}_${ID}"
+    fi
+
+    if [ -d "${BLK_DIR}_${ID}" ];then
+        echo "Removing ${BLK_DIR}_${ID}"
+        sudo rmdir "${BLK_DIR}_${ID}"
+    fi
 }
 
 ##########################################################
